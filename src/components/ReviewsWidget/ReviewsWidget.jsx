@@ -18,9 +18,15 @@ class ReviewsWidget extends Component {
     if (!total) {
       return 0;
     }
-    const positiveFeedback = ((good / total) * 100).toFixed(1);
+    const positiveFeedback = ((good / total) * 100).toFixed(2);
     return positiveFeedback;
   }
+
+  handleClickBtn = propState => {
+    this.setState(prevState => ({
+      [propState]: prevState[propState] + 1,
+    }));
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
@@ -36,13 +42,25 @@ class ReviewsWidget extends Component {
         <div className="btn-block">
           <h2>P. L. F.</h2>
           <div className="wrapper">
-            <button className={styles.btn} type="button">
+            <button
+              onClick={() => this.handleClickBtn('good')}
+              className={styles.btn}
+              type="button"
+            >
               good
             </button>
-            <button className={styles.btn} type="button">
+            <button
+              onClick={() => this.handleClickBtn('neutral')}
+              className={styles.btn}
+              type="button"
+            >
               neutral
             </button>
-            <button className={styles.btn} type="button">
+            <button
+              onClick={() => this.handleClickBtn('bad')}
+              className={styles.btn}
+              type="button"
+            >
               bad
             </button>
           </div>
