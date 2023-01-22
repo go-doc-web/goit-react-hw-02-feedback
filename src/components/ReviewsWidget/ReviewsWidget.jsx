@@ -40,7 +40,7 @@ class ReviewsWidget extends Component {
     return (
       <section className={styles.reviews}>
         <div className="btn-block">
-          <h2>P. L. F.</h2>
+          <h2>Pliase liave feedback</h2>
           <div className="wrapper">
             <button
               onClick={() => this.handleClickBtn('good')}
@@ -66,7 +66,7 @@ class ReviewsWidget extends Component {
           </div>
         </div>
 
-        <div className="statistics">
+        <div className={styles.statistics}>
           <h2>statistics</h2>
           <div className="feedback-result">
             <p>good: {good}</p>

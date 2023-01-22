@@ -5,11 +5,27 @@ h2 {
 }
 
 .reviews {
-  display: grid;
-  grid-template-columns: 350px 350px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  outline: 1px solid tomato;
 }
 
 .btn {
   padding: 10px;
   cursor: pointer;
+
+  background-color: teal;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.statistics {
+  width: 100%;
 }
