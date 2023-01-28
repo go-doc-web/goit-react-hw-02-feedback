@@ -23,7 +23,7 @@ const FeedbackOptions = ({ options, onClickFeedbackBtn }) => {
 
 export default FeedbackOptions;
 
-FeedbackOptions.ContactItem.defaultProps = {
+FeedbackOptions.defaultProps = {
   options: [
     { id: '4', name: 'good', color: 'green' },
     { id: '5', name: 'neutral', color: 'blue' },
