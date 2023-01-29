@@ -2,18 +2,15 @@ import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.scss';
 
 const FeedbackOptions = ({ options, onClickFeedbackBtn }) => {
-  const elements = options.map(({ id, name, color }) => {
+  const elements = options.map((item, index) => {
     return (
-      <li key={id}>
-        {/* <button onClick={() => onClickFeedbackBtn(name)} type="button">
-            {name}
-          </button> */}
+      <li key={index}>
         <button
-          onClick={() => onClickFeedbackBtn(name)}
-          className={`${styles.button} ${styles.raised} `}
-          style={{ backgroundColor: color }}
+          onClick={() => onClickFeedbackBtn(item)}
+          type="button"
+          className={` ${styles.button} ${styles.raised} ${styles[item]}`}
         >
-          {name}
+          {item}
         </button>
       </li>
     );
@@ -24,20 +21,10 @@ const FeedbackOptions = ({ options, onClickFeedbackBtn }) => {
 export default FeedbackOptions;
 
 FeedbackOptions.defaultProps = {
-  options: [
-    { id: '4', name: 'good', color: 'green' },
-    { id: '5', name: 'neutral', color: 'blue' },
-    { id: '6', name: 'bad', color: 'red' },
-  ],
+  options: ['good', 'neutral', 'bad'],
 };
 
 FeedbackOptions.propTypes = {
   onClickFeedbackBtn: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      color: PropTypes.string.isRequired,
-    })
-  ),
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

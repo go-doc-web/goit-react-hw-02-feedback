@@ -6,12 +6,6 @@ import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
 
-const optionsFeedback = [
-  { id: '1', name: 'good', color: 'green' },
-  { id: '2', name: 'neutral', color: 'blue' },
-  { id: '3', name: 'bad', color: 'red' },
-];
-
 class App extends Component {
   state = {
     good: 0,
@@ -35,6 +29,8 @@ class App extends Component {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     const positivePercentageFeedback = this.positivePercentage(good, total);
+    const optionsFeedback = Object.keys(this.state);
+
     return (
       <div className={styles.wrapper}>
         <Section title={'Please leave feedback'}>
